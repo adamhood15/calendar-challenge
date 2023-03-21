@@ -1,10 +1,10 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
+var getEvent = localStorage.getItem('event');
 var saveBtn = $('.saveBtn');
 var currentDay = $('#currentDay');
-var textInput = $('.description');
+var textInput = $('textarea');
 
 $(document).ready(function () {
 
@@ -19,14 +19,20 @@ $(document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-saveBtn.on('click', function () {
-  var scheduleInput = textInput.value;
-  console.log(scheduleInput);
-  console.log('Hello');
+
+  textInput.text(getEvent);
+
+saveBtn.on('click', function (event) {
+
+  let userInput = textInput.val();
+  var storeEvent = localStorage.setItem('event', userInput);
+ 
+
 })
 
 
-  // TODO: Add code to apply the past, present, or future class to each time
+  // TODO: Add code to apply the past, pre
+  // sent, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
