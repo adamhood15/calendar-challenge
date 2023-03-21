@@ -4,6 +4,7 @@
 
 var saveBtn = $('.saveBtn');
 var currentDay = $('#currentDay');
+var textInput = $('.description');
 
 $(document).ready(function () {
 
@@ -18,7 +19,11 @@ $(document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-
+saveBtn.on('click', function () {
+  var scheduleInput = textInput.value;
+  console.log(scheduleInput);
+  console.log('Hello');
+})
 
 
   // TODO: Add code to apply the past, present, or future class to each time
