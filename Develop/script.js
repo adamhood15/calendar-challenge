@@ -14,6 +14,15 @@ var textInput3pm = $('#3pm');
 var textInput4pm = $('#4pm');
 var textInput5pm = $('#5pm');
 var saveBtn9am = $('#9amBtn')
+var saveBtn10am = $('#10amBtn')
+var saveBtn11am = $('#11amBtn')
+var saveBtn12am = $('#12amBtn')
+var saveBtn1pm = $('#1pmBtn')
+var saveBtn2pm = $('#2pmBtn')
+var saveBtn3pm = $('#3pmBtn')
+var saveBtn4pm = $('#4pmBtn')
+var saveBtn5pm = $('#5pmBtn')
+
 var calendarEvents = [];
 
 $(document).ready(function () {
@@ -31,6 +40,14 @@ $(document).ready(function () {
   //
 
 textInput9am.text(get9amEvent);
+textInput10am.text(localStorage.getItem('10amEvent'));
+textInput11am.text(localStorage.getItem('11amEvent'));
+textInput12am.text(localStorage.getItem('12amEvent'));
+textInput1pm.text(localStorage.getItem('1pmEvent'));
+textInput2pm.text(localStorage.getItem('2pmEvent'));
+textInput3pm.text(localStorage.getItem('3pmEvent'));
+textInput4pm.text(localStorage.getItem('4pmEvent'));
+textInput5pm.text(localStorage.getItem('5pmEvent'));
 
 saveBtn9am.on('click', function (event) {
   console.log($(this));
@@ -39,6 +56,64 @@ saveBtn9am.on('click', function (event) {
     var storeEvent = localStorage.setItem('9amEvent', userInput);
 
 })
+
+saveBtn10am.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput10am.val();
+    var storeEvent = localStorage.setItem('10amEvent', userInput);
+
+})
+saveBtn11am.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput11am.val();
+    var storeEvent = localStorage.setItem('11amEvent', userInput);
+
+})
+saveBtn12am.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput12am.val();
+    var storeEvent = localStorage.setItem('12amEvent', userInput);
+
+})
+saveBtn1pm.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput1pm.val();
+    var storeEvent = localStorage.setItem('1pmEvent', userInput);
+
+})
+saveBtn2pm.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput2pm.val();
+    var storeEvent = localStorage.setItem('2pmEvent', userInput);
+
+})
+saveBtn3pm.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput3pm.val();
+    var storeEvent = localStorage.setItem('3pmEvent', userInput);
+
+})
+saveBtn4pm.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput4pm.val();
+    var storeEvent = localStorage.setItem('4pmEvent', userInput);
+
+})
+saveBtn5pm.on('click', function (event) {
+  console.log($(this));
+
+    let userInput = textInput5pm.val();
+    var storeEvent = localStorage.setItem('5pmEvent', userInput);
+
+})
+
 
 
   // TODO: Add code to apply the past, pre
