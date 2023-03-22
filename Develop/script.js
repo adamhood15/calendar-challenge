@@ -1,10 +1,20 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var getEvent = localStorage.getItem('event');
+var get9amEvent = localStorage.getItem('9amEvent');
 var saveBtn = $('.saveBtn');
 var currentDay = $('#currentDay');
-var textInput = $('textarea');
+var textInput9am = $('#9am');
+var textInput10am = $('#10am');
+var textInput11am = $('#11am');
+var textInput12am = $('#12am');
+var textInput1pm = $('#1pm');
+var textInput2pm = $('#2pm');
+var textInput3pm = $('#3pm');
+var textInput4pm = $('#4pm');
+var textInput5pm = $('#5pm');
+var saveBtn9am = $('#9amBtn')
+var calendarEvents = [];
 
 $(document).ready(function () {
 
@@ -20,13 +30,13 @@ $(document).ready(function () {
   // useful when saving the description in local storage?
   //
 
-  textInput.text(getEvent);
+textInput9am.text(get9amEvent);
 
-saveBtn.on('click', function (event) {
+saveBtn9am.on('click', function (event) {
+  console.log($(this));
 
-  let userInput = textInput.val();
-  var storeEvent = localStorage.setItem('event', userInput);
- 
+    let userInput = textInput9am.val();
+    var storeEvent = localStorage.setItem('9amEvent', userInput);
 
 })
 
