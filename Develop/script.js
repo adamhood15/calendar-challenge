@@ -3,6 +3,7 @@
 // in the html.
 var get9amEven = localStorage.getItem('9amEvent');
 var saveBtn = $('.saveBtn');
+var saveIcon = $('#10amBtn');
 var currentDay = $('#currentDay');
 var event9am = $('#9am')
 var event10am = $('#10am') 
@@ -44,10 +45,12 @@ event3pm.val(localStorage.getItem('hour-3'));
 event4pm.val(localStorage.getItem('hour-4'));
 event5pm.val(localStorage.getItem('hour-5'));
 
+saveBtn.on('click', function () {
+  console.log(this);
 
-saveBtn.on('click', function (event) {
-  var parentID = event.target.parentElement.parentElement.id;
-  var siblingID = event.target.parentElement.previousElementSibling;
+
+  var parentID = this.parentElement.id;
+  var siblingID = this.previousElementSibling;
   var userInput = siblingID.value;
 
   localStorage.setItem(parentID, userInput)
@@ -64,6 +67,13 @@ saveBtn.on('click', function (event) {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+  var divID = $('#hour-9').attr('id');
+  var hour10Id = $('#hour-10').attr('id');
+var hour = dayjs().format('H');
+console.log(hour);
+console.log(divID);
+console.log(hour10Id);
+
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
