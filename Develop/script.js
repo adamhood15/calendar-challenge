@@ -41,11 +41,12 @@ event4pm.val(localStorage.getItem('hour-4'));
 event5pm.val(localStorage.getItem('hour-5'));
 
 saveBtn.on('click', function () {
-  console.log(this);
 
-
+  //grabs the id of the parent div for each timeslot
   var parentID = this.parentElement.id;
+  //grabs the text area element of the timeslot
   var siblingID = this.previousElementSibling;
+  //stores the user input for the text area of each timeslot
   var userInput = siblingID.value;
   //sets user input and id key to local storage
   localStorage.setItem(parentID, userInput)
