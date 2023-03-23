@@ -14,14 +14,9 @@ var event3pm = $('#3pm')
 var event4pm = $('#4pm')
 var event5pm = $('#5pm')
 
-
-
-
-
-var calendarEvents = [];
-
+//Activates the clock to start on page load
 $(document).ready(function () {
-
+  //Displays clock
   var today = dayjs().format('dddd MMMM DD');
   currentDay.text(today);
 
@@ -33,7 +28,7 @@ $(document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-
+//Displays the localstorage item in the appropriate text box
 event9am.val(localStorage.getItem('hour-9'));
 event10am.val(localStorage.getItem('hour-10'));
 event11am.val(localStorage.getItem('hour-11'));
@@ -46,16 +41,15 @@ event5pm.val(localStorage.getItem('hour-5'));
 
 
 saveBtn.on('click', function (event) {
+  //grabs the id of the div for each timeblock
   var parentID = event.target.parentElement.parentElement.id;
+  //grabs the textarea div of each corresonding save element
   var siblingID = event.target.parentElement.previousElementSibling;
   var userInput = siblingID.value;
-
+  //sets user input and id key to local storage
   localStorage.setItem(parentID, userInput)
 
-
 })
-
-
 
 
   // TODO: Add code to apply the past, pre
