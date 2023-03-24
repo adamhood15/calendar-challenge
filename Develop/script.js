@@ -69,7 +69,8 @@ saveBtn.on('click', function () {
   // current hour in 24-hour time?
   var divID = $('#hour-9').attr('id');
   var hour10Id = $('#hour-10').attr('id');
-var hour = dayjs().format('H');
+  var hour = 'hour-' + dayjs().format('H');
+
 console.log(hour);
 console.log(divID);
 console.log(hour10Id);
