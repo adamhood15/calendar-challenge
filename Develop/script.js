@@ -60,24 +60,45 @@ saveBtn.on('click', function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+var hour9Id = $('#hour-9').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hourId = [$('#hour-9'), $('#hour-10'), $('#hour-11'), $('#hour-12'),  
+              $('#hour-1'), $('#hour-2'), $('#hour-3'), $('#hour-4'), $('#hour-5'),]
 
 //compares clock to id to apply past, present, future class
-if (hour === hour9Id) {
-  //apply present class
 
-} else if (hour < hour9Id){
-  //Apply future class
+for (i = 0; i < hourId.length; i++) {
 
-} else {
-  //apply past class
+  var hour = 'hour-' + dayjs().format('H');
+
+  if (hour === hourId[i].attr('id')) {
+    console.log(hourId[i].attr('id'));
+    console.log(hour);
+    hourId[i].addClass('present');
+
+  } else if (hour < hourId[i].attr('id')) {
+    console.log(hourId[i].attr('id'));
+    console.log(hour);
+
+    hourId[i].addClass('future');
+  
+  } else if (hour > hourId[i].attr('id')) {
+    console.log(hourId[i].attr('id'));
+    console.log(hour);
+
+    hourId[i].addClass('past');
+
+  }
 }
 
-  var hour9Id = $('#hour-9').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour = 'hour-' + dayjs().format('H');
-console.log(hour);
-console.log(divID);
-console.log(hour10Id);
 
 
 
