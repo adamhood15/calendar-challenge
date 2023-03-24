@@ -15,14 +15,9 @@ var event3pm = $('#3pm')
 var event4pm = $('#4pm')
 var event5pm = $('#5pm')
 
-
-
-
-
-var calendarEvents = [];
-
+//Activates the clock to start on page load
 $(document).ready(function () {
-
+  //Displays clock
   var today = dayjs().format('dddd MMMM DD');
   currentDay.text(today);
 
@@ -34,7 +29,7 @@ $(document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-
+//Displays the localstorage item in the appropriate text box
 event9am.val(localStorage.getItem('hour-9'));
 event10am.val(localStorage.getItem('hour-10'));
 event11am.val(localStorage.getItem('hour-11'));
@@ -46,19 +41,17 @@ event4pm.val(localStorage.getItem('hour-4'));
 event5pm.val(localStorage.getItem('hour-5'));
 
 saveBtn.on('click', function () {
-  console.log(this);
 
-
+  //grabs the id of the parent div for each timeslot
   var parentID = this.parentElement.id;
+  //grabs the text area element of the timeslot
   var siblingID = this.previousElementSibling;
+  //stores the user input for the text area of each timeslot
   var userInput = siblingID.value;
-
+  //sets user input and id key to local storage
   localStorage.setItem(parentID, userInput)
 
-
 })
-
-
 
 
   // TODO: Add code to apply the past, pre
@@ -67,13 +60,26 @@ saveBtn.on('click', function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  var divID = $('#hour-9').attr('id');
-  var hour10Id = $('#hour-10').attr('id');
-  var hour = 'hour-' + dayjs().format('H');
 
+//compares clock to id to apply past, present, future class
+if (hour === hour9Id) {
+  //apply present class
+
+} else if (hour < hour9Id){
+  //Apply future class
+
+} else {
+  //apply past class
+}
+
+  var hour9Id = $('#hour-9').attr('id');
+var hour10Id = $('#hour-10').attr('id');
+var hour = 'hour-' + dayjs().format('H');
 console.log(hour);
 console.log(divID);
 console.log(hour10Id);
+
+
 
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
