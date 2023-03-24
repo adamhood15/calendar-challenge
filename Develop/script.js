@@ -60,16 +60,20 @@ saveBtn.on('click', function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-var hour9Id = $('#hour-9').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
-var hour10Id = $('#hour-10').attr('id');
+
+// stores an array that contains all classes of each element, then grabs the 3rd item in the array
+// Need to refactor so that it always grabs the last class of the element
+var hour9Id = parseFloat($('#hour-9').attr('class').split(' ')[2]);
+var hour10Id = parseFloat($('#hour-10').attr('class').split(' ')[2]);
+var hour11Id = parseFloat($('#hour-11').attr('class').split(' ')[2]);
+var hour12Id = parseFloat($('#hour-12').attr('class').split(' ')[2]);
+var hour13Id = parseFloat($('#hour-1').attr('class').split(' ')[2]);
+var hour14Id = parseFloat($('#hour-2').attr('class').split(' ')[2]);
+var hour15Id = parseFloat($('#hour-3').attr('class').split(' ')[2]);
+var hour16Id = parseFloat($('#hour-4').attr('class').split(' ')[2]);
+var hour17Id = parseFloat($('#hour-5').attr('class').split(' ')[2]);
+var hourClassArr = [hour9Id, hour10Id, hour11Id, hour12Id, hour13Id, 
+                    hour14Id, hour15Id, hour16Id, hour17Id]
 var hourId = [$('#hour-9'), $('#hour-10'), $('#hour-11'), $('#hour-12'),  
               $('#hour-1'), $('#hour-2'), $('#hour-3'), $('#hour-4'), $('#hour-5'),]
 
@@ -77,22 +81,19 @@ var hourId = [$('#hour-9'), $('#hour-10'), $('#hour-11'), $('#hour-12'),
 
 for (i = 0; i < hourId.length; i++) {
 
-  var hour = 'hour-' + dayjs().format('H');
+  var hour = dayjs().hour();
 
-  if (hour === hourId[i].attr('id')) {
-    console.log(hourId[i].attr('id'));
-    console.log(hour);
+  if (hour === hourClassArr[i]) {
+
     hourId[i].addClass('present');
 
-  } else if (hour < hourId[i].attr('id')) {
-    console.log(hourId[i].attr('id'));
-    console.log(hour);
+  } else if (hour < hourClassArr[i]) {
+
 
     hourId[i].addClass('future');
   
-  } else if (hour > hourId[i].attr('id')) {
-    console.log(hourId[i].attr('id'));
-    console.log(hour);
+  } else if (hour > hourClassArr[i]) {
+
 
     hourId[i].addClass('past');
 
